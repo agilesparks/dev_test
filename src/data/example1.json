@@ -1,0 +1,45 @@
+{
+  "test_id": "example1",
+  "title": "AgileSparks example Test",
+  "duration_min": 10,
+  "questions": [
+    {
+      "id": 0,
+      "text": "What is most similar?",
+      "image": "q1.png",
+      "answers": [
+        {
+          "image": "q1a1.png"
+        },
+        {
+          "image": "q1a2.png"
+        },
+        {
+          "image": "q1a3.png"
+        },
+        {
+          "image": "q1a4.pngd"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "text": "What is the meaning?",
+      "image": "q2.png",
+      "answers": [
+        {
+          "text": "Sad"
+        },
+        {
+          "text": "Happy"
+        },
+        {
+          "text": "ROFL"
+        },
+        {
+          "text": "None of the above"
+        }
+      ]
+    }
+  ]
+}
