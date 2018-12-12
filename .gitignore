@@ -2,6 +2,7 @@
 
 /src/data/*
 !/src/data/example1*
+!/src/data/example1.json
 
 # dependencies
 /node_modules
