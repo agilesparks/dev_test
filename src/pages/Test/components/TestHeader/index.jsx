@@ -11,18 +11,31 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1em;
+  padding: 0 0 0 1em;
   height: 50px;
+  line-height: 50px;
 `
 const Title = styled.span`
   font-weight: bold;
+`
+
+const TimerContainer = styled.span`
+  font-size: 1.8em;
+  background: rgba(0,0,0,0.4);
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 1em;
+  width: 50%;
+  text-align: center;
 `
 
 export default function TestHeader({title, timeRemaining}) {
   return (
     <Container>
       <Title>{title}</Title>
-      <Timer timeRemaining={timeRemaining} warnMs={120000}/>
+      <TimerContainer>
+        <Timer timeRemaining={timeRemaining} warnMs={120000}/>
+      </TimerContainer>
     </Container>
   )
 }
