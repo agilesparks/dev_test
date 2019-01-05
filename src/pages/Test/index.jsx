@@ -61,10 +61,32 @@ class Testpage extends React.Component {
       //   timeRemaining: Math.max(this.state.timeRemaining - 1000, 0),
       // })
     }, 500)
+    this.preloadTestImages();
   }
   componentWillUnmount() {
     clearInterval(interval);
   }
+
+  preloadTestImages = () => {
+    const images = [];
+    this.props.testData.questions.forEach(question => {
+      if (question.image) {
+        images.push(this.toAssetsPath(question.image));
+      }
+      question.answers.forEach(answer => {
+        if (answer.image) {
+          images.push(this.toAssetsPath(answer.image));
+        }
+      })
+    });
+    // console.log('Preloading', images);
+    images.map(src => {
+      const image = new Image();
+      // image.onload = () => console.log('loaded');
+      image.src = src;
+   })
+  }
+
   moveNextQ = () => {
     this.setState({
       curQuestion: this.state.curQuestion + 1
