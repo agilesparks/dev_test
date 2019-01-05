@@ -6,12 +6,16 @@ const testData = require('../../data/' + process.env.REACT_APP_TEST_ID + '.json'
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    this.ref = React.createRef();
+    this.nameRef = React.createRef();
+    this.expRef = React.createRef();
   }
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    this.props.onSubmit({name: this.ref.current.value});
+    this.props.onSubmit({
+      name: this.nameRef.current.value,
+      exp: this.expRef.current.value,
+    });
   }
 
   render() {
@@ -29,8 +33,11 @@ class Homepage extends React.Component {
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Full Name: <input ref={this.ref} required={true}></input>
-          </label>
+            Full Name: <input ref={this.nameRef} required={true}></input>
+          </label><br/>
+          <label>
+            Years of JS experience: <input ref={this.expRef} required={true}></input>
+          </label><br/>
           <button>Start</button>
         </form>
         <p>

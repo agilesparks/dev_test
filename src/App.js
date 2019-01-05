@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Test from './pages/Test';
 import Loader from'./pages/Loader';
 import Final from './pages/Final';
+import Error from './pages/Error';
 import theme from './theme';
 import {ThemeProvider} from 'styled-components';
 
@@ -24,6 +25,20 @@ class App extends Component {
       userData: data,
       tsStart: new Date().toLocaleString(),
     });
+
+    // Log start
+    fetch(
+      process.env.REACT_APP_API_URL, { 
+        method: 'POST', 
+        body: JSON.stringify({
+          docId: process.env.REACT_APP_DOC_ID,
+          action: 'start',
+          payload: {
+            name: data.name,
+          }
+        })
+      }
+    )
   }
 
   handleTestSubmit = (data) => {
@@ -34,6 +49,7 @@ class App extends Component {
 
     const finalData = {
       name: this.state.userData.name,
+      exp: this.state.userData.exp,
       tsStart: this.state.tsStart,
       tsEnd: new Date().toLocaleString(),
     }
@@ -41,15 +57,27 @@ class App extends Component {
       finalData['a' + idx] = ans
     })
     
-    console.log('Send to server', finalData); //TODO
-    fetch(process.env.REACT_APP_API_URL, { method: 'POST', body: JSON.stringify(finalData)})
-      .then(response => {
-        console.log('Success!', response)
-        this.setState({
-          currentView: 'final',
-        })
+    console.log('Send to server', finalData);
+    fetch(process.env.REACT_APP_API_URL, { 
+      method: 'POST', 
+      body: JSON.stringify({
+        docId: process.env.REACT_APP_DOC_ID,
+        action: 'finish',
+        payload: finalData,
       })
-      .catch(error => console.error('Error!', error.message))
+    })
+    .then(response => {
+      console.log('Success!', response)
+      this.setState({
+        currentView: 'final',
+      })
+    })
+    .catch(error => {
+      console.error('Error!', error.message)
+      this.setState({
+        currentView: 'error',
+      })
+    });
 
     // setTimeout(() => {
     //   this.setState({
@@ -70,6 +98,9 @@ class App extends Component {
     }
     if (this.state.currentView === 'final') {
       return (<Final/>)
+    }
+    if (this.state.currentView === 'error') {
+      return (<Error data={this.state.userAnswers}/>)
     }
   }
 
