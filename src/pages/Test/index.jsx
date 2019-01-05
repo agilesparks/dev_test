@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Question from './components/Question';
 import QuestionsNav from './components/QuestionsNav';
 import TestHeader from './components/TestHeader';
-const testData = require('../../data/' + process.env.REACT_APP_TEST_ID + '.json');
 
 // generat a path resolver
 const getToAssetsPath = (testId) => {
@@ -11,7 +10,6 @@ const getToAssetsPath = (testId) => {
     return require(`../../data/${testId}_assets/${file}`);
   }
 }
-const toAssetsPath = getToAssetsPath(testData.test_id);
 
 function shuffle(arr) {
   // TODO
@@ -40,14 +38,16 @@ class Testpage extends React.Component {
     super(props);
     this.ref = React.createRef();
     this.state = {
-      timeRemaining: testData.duration_min * 60 * 1000,
-      questions: shuffle(testData.questions),
-      answers: testData.questions.map(i => null),
+      timeRemaining: props.testData.duration_min * 60 * 1000,
+      questions: shuffle(props.testData.questions),
+      answers: props.testData.questions.map(i => null),
       curQuestion: 0,
       startTime: Date.now(),
     }
+    this.toAssetsPath = getToAssetsPath(props.testData.test_id);
   }
   componentDidUpdate() {
+    const {testData} = this.props;
     const timeRemaining = (testData.duration_min * 60 * 1000) - (Date.now() - this.state.startTime);
     if(timeRemaining <= 0) {
       this.handleSubmit();
@@ -88,6 +88,7 @@ class Testpage extends React.Component {
   }
 
   render() {
+    const {testData} = this.props;
     const timeRemaining = (testData.duration_min * 60 * 1000) - (Date.now() - this.state.startTime);
     return (
       <Container>
@@ -113,7 +114,7 @@ class Testpage extends React.Component {
           data={this.state.questions[this.state.curQuestion]}
           selectedAnswer={this.state.answers[this.state.curQuestion]}
           onSelectAnswer={this.handleSelectAnswer}
-          toAssetsUrl={toAssetsPath}
+          toAssetsUrl={this.toAssetsPath}
         />
         
       </Container>

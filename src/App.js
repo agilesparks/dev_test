@@ -6,6 +6,7 @@ import Final from './pages/Final';
 import Error from './pages/Error';
 import theme from './theme';
 import {ThemeProvider} from 'styled-components';
+const testData = require('./data/' + process.env.REACT_APP_TEST_ID + '.json');
 
 class App extends Component {
   constructor(props) {
@@ -88,19 +89,23 @@ class App extends Component {
 
   renderContent = () => {
     if (this.state.currentView === 'home') {
-      return (<Home onSubmit={this.handleUserFormSubmit}/>)
+      return (<Home 
+        onSubmit={this.handleUserFormSubmit}
+        title={testData.title}
+        duration_min={testData.duration_min}
+      />)
     }
     if (this.state.currentView === 'test') {
-      return (<Test onSubmit={this.handleTestSubmit}/>)
+      return (<Test testData={testData} onSubmit={this.handleTestSubmit}/>)
     }
     if (this.state.currentView === 'loader') {
       return (<Loader/>)
     }
     if (this.state.currentView === 'final') {
-      return (<Final/>)
+      return (<Final title={testData.title}/>)
     }
     if (this.state.currentView === 'error') {
-      return (<Error data={this.state.userAnswers}/>)
+      return (<Error data={this.state.userAnswers} title={testData.title}/>)
     }
   }
 

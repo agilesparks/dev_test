@@ -19,17 +19,18 @@ class Homepage extends React.Component {
   }
 
   render() {
+    const {title, duration_min} = this.props;
     return (
       <PageContainer>
         <Header>
-          {testData.title}
+          {title}
         </Header>
         <p>
-          Welcome to {testData.title}.<br/>
+          Welcome to {title}.<br/>
           Please fill your name below and then submit to start the test.<br/>
         </p>
         <p>
-          Once the test starts, you will have {testData.duration_min} minutes to complete {testData.questions.length} short questions.
+          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} short questions.
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>
