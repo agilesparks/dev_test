@@ -27,6 +27,7 @@ export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
                 /> {item.text && item.text}
                 {imageUrl && (
                   <Img 
+                    key={imageUrl}
                     srcSet={`${imageUrl} 100w`} 
                     sizes="50px" 
                     src={imageUrl} 
