@@ -1,6 +1,7 @@
 {
   "test_id": "example1",
   "title": "AgileSparks example Test",
+  "technology": "favicons",
   "duration_min": 10,
   "questions": [
     {

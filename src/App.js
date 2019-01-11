@@ -93,6 +93,7 @@ class App extends Component {
         onSubmit={this.handleUserFormSubmit}
         title={testData.title}
         duration_min={testData.duration_min}
+        technology={testData.technology}
       />)
     }
     if (this.state.currentView === 'test') {

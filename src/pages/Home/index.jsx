@@ -19,7 +19,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    const {title, duration_min} = this.props;
+    const {title, duration_min, technology} = this.props;
     return (
       <PageContainer>
         <Header>
@@ -37,7 +37,7 @@ class Homepage extends React.Component {
             Full Name: <input ref={this.nameRef} required={true}></input>
           </label><br/>
           <label>
-            Years of JS experience: <input ref={this.expRef} required={true}></input>
+            Years of {technology} experience: <input ref={this.expRef} required={true}></input>
           </label><br/>
           <button>Start</button>
         </form>
