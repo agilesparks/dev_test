@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ANSWERS = ['a', 'b', 'c', 'd'];
+const ANSWERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
 
 const AnswerContainer = styled.div`
   margin-bottom: 1em;
