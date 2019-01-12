@@ -30,7 +30,7 @@ class Homepage extends React.Component {
           Please fill your name below and then submit to start the test.<br/>
         </p>
         <p>
-          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} short questions.
+          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} questions.
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>
