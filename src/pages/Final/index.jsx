@@ -10,6 +10,8 @@ export default function FinalPage({title}) {
       </Header>
       Thanks for completing the test!<br/>
       We'll review it and be in touch soon.
+      <br/>
+      <a href="/">Back to main page</a>
     </PageContainer>
   )
 }
