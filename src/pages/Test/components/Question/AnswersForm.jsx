@@ -9,6 +9,9 @@ const AnswerContainer = styled.div`
 const Img = styled.img`
   vertical-align: top;
 `
+const Bullet = styled.span`
+  font-weight: bold;
+`
 export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
   const selectedIdx = parseInt(selected);
   return (
@@ -24,7 +27,7 @@ export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
                   value={ANSWERS[idx]}
                   checked={selected === ANSWERS[idx]}
                   onChange={onChange}
-                /> {item.text && item.text}
+                /> <Bullet>{idx + 1} -</Bullet> {item.text && item.text}
                 {imageUrl && (
                   <Img 
                     key={imageUrl}
