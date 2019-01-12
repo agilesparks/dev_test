@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Question from './components/Question';
 import QuestionsNav from './components/QuestionsNav';
 import TestHeader from './components/TestHeader';
+import Beforeunload from 'react-beforeunload';
 
 // generat a path resolver
 const getToAssetsPath = (testId) => {
@@ -113,33 +114,35 @@ class Testpage extends React.Component {
     const {testData} = this.props;
     const timeRemaining = (testData.duration_min * 60 * 1000) - (Date.now() - this.state.startTime);
     return (
-      <Container>
-        <TestHeader
-          timeRemaining={timeRemaining}
-          title={testData.title}
-        />
-        <div>
-          <Header>
-            Question {this.state.curQuestion + 1} of {this.state.questions.length}
-          </Header>
-          <ButtonsContainer>
-            <QuestionsNav
-              curQuestion={this.state.curQuestion}
-              totalQuestions={this.state.questions.length}
-              onMovePrev={this.movePrevQ}
-              onMoveNext={this.moveNextQ}
-              onSubmit={this.handleSubmit}
-            />
-          </ButtonsContainer>
-        </div>
-        <Question
-          data={this.state.questions[this.state.curQuestion]}
-          selectedAnswer={this.state.answers[this.state.curQuestion]}
-          onSelectAnswer={this.handleSelectAnswer}
-          toAssetsUrl={this.toAssetsPath}
-        />
-        
-      </Container>
+      <Beforeunload onBeforeunload={() => "Sure you want to stop now?"} >
+        <Container>
+          <TestHeader
+            timeRemaining={timeRemaining}
+            title={testData.title}
+          />
+          <div>
+            <Header>
+              Question {this.state.curQuestion + 1} of {this.state.questions.length}
+            </Header>
+            <ButtonsContainer>
+              <QuestionsNav
+                curQuestion={this.state.curQuestion}
+                totalQuestions={this.state.questions.length}
+                onMovePrev={this.movePrevQ}
+                onMoveNext={this.moveNextQ}
+                onSubmit={this.handleSubmit}
+              />
+            </ButtonsContainer>
+          </div>
+          <Question
+            data={this.state.questions[this.state.curQuestion]}
+            selectedAnswer={this.state.answers[this.state.curQuestion]}
+            onSelectAnswer={this.handleSelectAnswer}
+            toAssetsUrl={this.toAssetsPath}
+          />
+          
+        </Container>
+      </Beforeunload>
     );
   }
 }
