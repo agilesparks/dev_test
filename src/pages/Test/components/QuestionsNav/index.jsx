@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+`
 const Button = styled.button`
   border: 2px solid skyblue;
   border-radius: 5px;
-  margin: 0 0.5em;
+  margin-right: 0.5em;
 `
 export default function QuestionsNav(props) {
   const {
@@ -15,7 +17,7 @@ export default function QuestionsNav(props) {
     onSubmit,
   } = props;
   return (
-    <div>
+    <Container>
       {curQuestion > 0 && (
         <Button onClick={onMovePrev}>Back</Button>
       )}
@@ -25,6 +27,6 @@ export default function QuestionsNav(props) {
       {curQuestion === totalQuestions - 1 && (
         <Button onClick={onSubmit}>Finish</Button>
       )}
-    </div>
+    </Container>
   )
 }

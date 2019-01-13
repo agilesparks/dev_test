@@ -23,13 +23,15 @@ const Container = styled.div`
     box-sizing: border-box;
   }
 `
+const Top = styled.div`
+`
 const Header = styled.h1`
   display: inline-block;
+  margin-right: 1em;
 `
 const ButtonsContainer = styled.div`
   display: inline-block;
   vertical-align: text-bottom;
-  margin-left: 1em;
 `
 
 let interval = null;
@@ -120,7 +122,7 @@ class Testpage extends React.Component {
             timeRemaining={timeRemaining}
             title={testData.title}
           />
-          <div>
+          <Top>
             <Header>
               Question {this.state.curQuestion + 1} of {this.state.questions.length}
             </Header>
@@ -133,14 +135,22 @@ class Testpage extends React.Component {
                 onSubmit={this.handleSubmit}
               />
             </ButtonsContainer>
-          </div>
+          </Top>
           <Question
             data={this.state.questions[this.state.curQuestion]}
             selectedAnswer={this.state.answers[this.state.curQuestion]}
             onSelectAnswer={this.handleSelectAnswer}
             toAssetsUrl={this.toAssetsPath}
           />
-          
+          <ButtonsContainer>
+            <QuestionsNav
+              curQuestion={this.state.curQuestion}
+              totalQuestions={this.state.questions.length}
+              onMovePrev={this.movePrevQ}
+              onMoveNext={this.moveNextQ}
+              onSubmit={this.handleSubmit}
+            />
+          </ButtonsContainer>
         </Container>
       </Beforeunload>
     );
