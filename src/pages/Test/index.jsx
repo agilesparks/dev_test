@@ -17,16 +17,25 @@ function shuffle(arr) {
   return arr;
 }
 
-const Container = styled.div`
-  padding: 50px 1em;
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
   * {
     box-sizing: border-box;
   }
+`
+const QuestionWrap = styled.div`
+  overflow: auto;
+  padding: 1em;
+  flex: 1;
 `
 const Top = styled.div`
 `
 const Header = styled.h1`
   display: inline-block;
+  margin-top: 0;
   margin-right: 1em;
 `
 const ButtonsContainer = styled.div`
@@ -117,15 +126,32 @@ class Testpage extends React.Component {
     const timeRemaining = (testData.duration_min * 60 * 1000) - (Date.now() - this.state.startTime);
     return (
       <Beforeunload onBeforeunload={() => "Sure you want to stop now?"} >
-        <Container>
+        <MainContainer>
           <TestHeader
             timeRemaining={timeRemaining}
             title={testData.title}
           />
-          <Top>
-            <Header>
-              Question {this.state.curQuestion + 1} of {this.state.questions.length}
-            </Header>
+          <QuestionWrap>
+            <Top>
+              <Header>
+                Question {this.state.curQuestion + 1} of {this.state.questions.length}
+              </Header>
+              <ButtonsContainer>
+                <QuestionsNav
+                  curQuestion={this.state.curQuestion}
+                  totalQuestions={this.state.questions.length}
+                  onMovePrev={this.movePrevQ}
+                  onMoveNext={this.moveNextQ}
+                  onSubmit={this.handleSubmit}
+                />
+              </ButtonsContainer>
+            </Top>
+            <Question
+              data={this.state.questions[this.state.curQuestion]}
+              selectedAnswer={this.state.answers[this.state.curQuestion]}
+              onSelectAnswer={this.handleSelectAnswer}
+              toAssetsUrl={this.toAssetsPath}
+            />
             <ButtonsContainer>
               <QuestionsNav
                 curQuestion={this.state.curQuestion}
@@ -135,23 +161,8 @@ class Testpage extends React.Component {
                 onSubmit={this.handleSubmit}
               />
             </ButtonsContainer>
-          </Top>
-          <Question
-            data={this.state.questions[this.state.curQuestion]}
-            selectedAnswer={this.state.answers[this.state.curQuestion]}
-            onSelectAnswer={this.handleSelectAnswer}
-            toAssetsUrl={this.toAssetsPath}
-          />
-          <ButtonsContainer>
-            <QuestionsNav
-              curQuestion={this.state.curQuestion}
-              totalQuestions={this.state.questions.length}
-              onMovePrev={this.movePrevQ}
-              onMoveNext={this.moveNextQ}
-              onSubmit={this.handleSubmit}
-            />
-          </ButtonsContainer>
-        </Container>
+          </QuestionWrap>
+        </MainContainer>
       </Beforeunload>
     );
   }

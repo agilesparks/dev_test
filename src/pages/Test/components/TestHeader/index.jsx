@@ -7,16 +7,19 @@ const Container = styled.div`
   justify-content: space-between;
   background-color: ${props => props.theme.color1};
   color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 0 0 0 1em;
-  height: 50px;
   line-height: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
 `
 const Title = styled.span`
   font-weight: bold;
+  flex: 1;
+  width: 100%;
+  padding: 0 1em;
+  @media (max-width: 650px) {
+    flex: auto;
+  }
 `
 
 const TimerContainer = styled.span`
@@ -25,8 +28,9 @@ const TimerContainer = styled.span`
   display: inline-block;
   overflow: hidden;
   padding: 0 1em;
-  width: 50%;
+  __width: 50%;
   text-align: center;
+  flex: 1;
 `
 
 export default function TestHeader({title, timeRemaining}) {
