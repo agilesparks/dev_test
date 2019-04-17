@@ -10,6 +10,7 @@
     "react": "^16.6.3",
     "react-beforeunload": "^1.0.4",
     "react-dom": "^16.6.3",
+    "react-markdown": "^4.0.8",
     "styled-components": "^4.1.2",
     "styled-spinkit": "^0.4.0"
   },
@@ -18,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "netlify deploy --dir=build --prod"
+    "deploy": "netlify deploy --dir=dist --prod"
   },
   "eslintConfig": {
     "extends": "react-app"

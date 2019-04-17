@@ -1,9 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
+const Wrapper = styled.div`
+& p {
+  margin: 0;
+}
+`
 export default function QuestionText({text, imageUrl}) {
   return (
-    <div>
-      {text && text}<br/>
+    <Wrapper>
+      {text && <ReactMarkdown source={text} />}<br/>
       {imageUrl && (
         <img 
           key={imageUrl}
@@ -13,6 +20,6 @@ export default function QuestionText({text, imageUrl}) {
           alt="Question"
         />
       )}
-    </div>
+    </Wrapper>
   )
 }

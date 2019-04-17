@@ -1,16 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const ANSWERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
 
 const AnswerContainer = styled.div`
   margin-bottom: 1em;
+  & p {
+    display: inline-block;
+    flex: 1;
+    margin: 0;
+  }
+`
+const Label = styled.label`
+  display: flex;
 `
 const Img = styled.img`
   vertical-align: top;
 `
 const Bullet = styled.span`
   font-weight: bold;
+  margin: 0 0.5em;
 `
 export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
   const selectedIdx = parseInt(selected);
@@ -21,13 +31,13 @@ export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
           const imageUrl = item.image && toAssetsUrl(item.image);
           return (
             <AnswerContainer key={idx}>
-              <label>
+              <Label>
                 <input 
                   type="radio" 
                   value={ANSWERS[idx]}
                   checked={selected === ANSWERS[idx]}
                   onChange={onChange}
-                /> <Bullet>{idx + 1} -</Bullet> {item.text && item.text}
+                /> <Bullet>{idx + 1} -</Bullet> {item.text && <ReactMarkdown source={item.text} />}
                 {imageUrl && (
                   <Img 
                     key={imageUrl}
@@ -37,7 +47,7 @@ export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
                     alt={`Answer ${idx}`}
                   />
                 )}
-              </label>
+              </Label>
             </AnswerContainer>
           )
         })

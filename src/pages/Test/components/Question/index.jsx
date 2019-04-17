@@ -1,7 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 import AnswersForm from './AnswersForm';
 import QuestionContent from './Question';
 
+const Container = styled.div`
+  max-width: 980px;
+  & code {
+    background: #f7f7f7;
+    padding: 0.25em 0.5em;
+    font-size: 85%;
+  }
+`
 class Question extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +26,7 @@ class Question extends React.Component {
   render() {
     const {data, selectedAnswer, toAssetsUrl} = this.props;
     return (
-      <div>
+      <Container>
         <QuestionContent 
           text={data.text} 
           imageUrl={data.image && (toAssetsUrl(data.image))}
@@ -29,7 +38,7 @@ class Question extends React.Component {
           selected={selectedAnswer}
           onChange={this.handleChange}
         />
-      </div>
+      </Container>
     );
   }
 }
