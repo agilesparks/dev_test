@@ -32,7 +32,7 @@ class App extends Component {
       process.env.REACT_APP_API_URL, { 
         method: 'POST', 
         body: JSON.stringify({
-          docId: testData.doc_id,  // process.env.REACT_APP_DOC_ID,
+          docId: testData.doc_id,
           action: 'start',
           payload: {
             name: data.name,
@@ -62,7 +62,7 @@ class App extends Component {
     fetch(process.env.REACT_APP_API_URL, { 
       method: 'POST', 
       body: JSON.stringify({
-        docId: testData.doc_id, // process.env.REACT_APP_DOC_ID,
+        docId: testData.doc_id,
         action: 'finish',
         payload: finalData,
       })
