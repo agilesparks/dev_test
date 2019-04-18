@@ -6,6 +6,8 @@ import Final from './pages/Final';
 import Error from './pages/Error';
 import theme from './theme';
 import {ThemeProvider} from 'styled-components';
+import {Helmet} from "react-helmet";
+
 const testData = require('./data/' + process.env.REACT_APP_TEST_ID + '.json');
 
 class App extends Component {
@@ -112,9 +114,15 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        {this.renderContent()}
-      </ThemeProvider>
+      <>
+        <Helmet>
+          <title>{testData.title}</title>
+          <meta name="description" content={`${testData.title} application`} />
+        </Helmet>
+        <ThemeProvider theme={theme}>
+          {this.renderContent()}
+        </ThemeProvider>
+      </>
     );
   }
 }
