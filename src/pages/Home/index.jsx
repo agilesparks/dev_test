@@ -30,15 +30,19 @@ class Homepage extends React.Component {
           Please fill your name below and then submit to start the test.<br/>
         </p>
         <p>
-          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} questions.
+          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} questions.<br/>
+        </p>
+        <p>
+          <b>Important:</b> questions have different difficulty levels, so plan your time accordingly.
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>
             Full Name: <input ref={this.nameRef} required={true}></input>
           </label><br/>
           <label>
-            Years of {technology} experience: <input ref={this.expRef} required={true}></input>
+            Years of {technology} experience: <input ref={this.expRef} required={true} type="number"></input>
           </label><br/>
+          <br/>
           <button>Start</button>
         </form>
         <p>
