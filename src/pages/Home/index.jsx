@@ -30,10 +30,11 @@ class Homepage extends React.Component {
           Please fill your name below and then submit to start the test.<br/>
         </p>
         <p>
-          Once the test starts, you will have {duration_min} minutes to complete {testData.questions.length} questions.<br/>
+          The test includes {testData.questions.length} multiple choice questions.<br/>
+          Once it starts, you will have {duration_min} minutes to complete all {testData.questions.length} questions.<br/>
         </p>
         <p>
-          <b>Important:</b> questions have different difficulty levels, so plan your time accordingly.
+          <b>Important:</b> the questions have different difficulty levels, so plan your time accordingly.
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>
