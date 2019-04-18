@@ -92,7 +92,7 @@ class Testpage extends React.Component {
       })
     });
     // console.log('Preloading', images);
-    images.map(src => {
+    images.forEach(src => {
       const image = new Image();
       // image.onload = () => console.log('loaded');
       image.src = src;

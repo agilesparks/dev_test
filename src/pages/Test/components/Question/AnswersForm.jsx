@@ -23,7 +23,6 @@ const Bullet = styled.span`
   margin: 0 0.5em;
 `
 export default function AnswersForm({answers, selected, onChange, toAssetsUrl}){
-  const selectedIdx = parseInt(selected);
   return (
     <form>
       {
