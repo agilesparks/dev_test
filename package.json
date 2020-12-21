@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "netlify-cli": "^2.5.0",
-    "react-scripts": "^2.1.8"
+    "netlify-cli": "^2.69.11",
+    "react-scripts": "4.0.1"
   },
   "dependencies": {
-    "react": "^16.6.3",
-    "react-beforeunload": "^1.0.4",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0",
-    "react-markdown": "^4.0.8",
-    "styled-components": "^4.1.2",
-    "styled-spinkit": "^0.4.0"
+    "react": "^17.0.1",
+    "react-beforeunload": "^2.4.0",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-markdown": "^5.0.3",
+    "styled-components": "^5.2.1",
+    "styled-spinkit": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3033 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Question from './components/Question';
 import QuestionsNav from './components/QuestionsNav';
 import TestHeader from './components/TestHeader';
-import Beforeunload from 'react-beforeunload';
+import { Beforeunload } from 'react-beforeunload';
 
 // generat a path resolver
 const getToAssetsPath = (testId) => {
