@@ -2,7 +2,7 @@ import React from "react";
 import { submitUserInfo, submitTest } from "../../apiService";
 
 import Home from "../Home";
-import Test from "../Test";
+import TestRunner from "../TestRunner";
 import Loader from "../Loader";
 import Final from "../Final";
 import Error from "../Error";
@@ -66,7 +66,7 @@ function Content({ testData }) {
     case VIEWS.Final:
       return <Final title={testData.title} />;
     case VIEWS.Test:
-      return <Test testData={testData} onSubmit={handleTestSubmit} />;
+      return <TestRunner testData={testData} onSubmit={handleTestSubmit} />;
     case VIEWS.Home:
     default:
       return (
