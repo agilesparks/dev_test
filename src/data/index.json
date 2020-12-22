@@ -1,0 +1,10 @@
+{
+  "company_name": "CodeSparks",
+  "tests": [
+    {
+      "name": "Example",
+      "file": "example1.json",
+      "slug": "example"
+    }
+  ]
+}

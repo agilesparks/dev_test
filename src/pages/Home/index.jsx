@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
 import PageContainer from '../../components/PageContainer';
-const testData = require('../../data/' + process.env.REACT_APP_TEST_ID + '.json');
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    const {title, duration_min, technology} = this.props;
+    const {title, duration_min, technology, questionsCount} = this.props;
     return (
       <PageContainer>
         <Header>
@@ -30,8 +29,8 @@ class Homepage extends React.Component {
           Please fill your name below and then submit to start the test.<br/>
         </p>
         <p>
-          The test includes <b>{testData.questions.length}</b> multiple choice questions.<br/>
-          Once it starts, you will have <b>{duration_min}</b> minutes to complete all {testData.questions.length} questions.<br/>
+          The test includes <b>{questionsCount}</b> multiple choice questions.<br/>
+          Once it starts, you will have <b>{duration_min}</b> minutes to complete all {questionsCount} questions.<br/>
         </p>
         <p>
           <b>Important:</b> the questions have different difficulty levels, so plan your time accordingly.

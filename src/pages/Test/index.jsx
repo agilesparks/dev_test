@@ -5,10 +5,11 @@ import QuestionsNav from './components/QuestionsNav';
 import TestHeader from './components/TestHeader';
 import { Beforeunload } from 'react-beforeunload';
 
+const Context = require.context(`../../data/`);
 // generat a path resolver
 const getToAssetsPath = (testId) => {
   return (file) => {
-    return require(`../../data/${testId}_assets/${file}`);
+    return Context(`./${testId}_assets/${file}`).default;
   }
 }
 
