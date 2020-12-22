@@ -33,12 +33,12 @@ const TimerContainer = styled.span`
   flex: 1;
 `
 
-export default function TestHeader({title, timeRemaining}) {
+export default function TestHeader({title, timeRemaining, warnThreshold = 120000}) {
   return (
     <Container>
       <Title>{title}</Title>
       <TimerContainer>
-        <Timer timeRemaining={timeRemaining} warnMs={120000}/>
+        <Timer timeRemaining={timeRemaining} warnMs={warnThreshold}/>
       </TimerContainer>
     </Container>
   )
