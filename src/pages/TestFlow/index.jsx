@@ -1,5 +1,7 @@
 import React from "react";
 import { fetchTestData } from "../../apiService";
+import Loader from "../Loader";
+import LoadError from "../LoadError";
 import Content from "./Content";
 
 function TestFlow({ dataFilePath }) {
@@ -37,10 +39,10 @@ function TestFlow({ dataFilePath }) {
   }, [dataFilePath]);
 
   if (loadState.isLoading) {
-    return <div>Loading...</div>;
+    return <Loader message="Loading Test Data..."/>;
   }
   if (loadState.isError) {
-    return <div>Loading Error :(</div>;
+    return <LoadError/>;
   }
 
   return <Content testData={loadState.data} />;

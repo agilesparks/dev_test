@@ -5,7 +5,7 @@ import Home from "../Home";
 import TestRunner from "../TestRunner";
 import Loader from "../Loader";
 import Final from "../Final";
-import Error from "../Error";
+import SubmitError from "../SubmitError";
 
 const VIEWS = {
   Home: "home",
@@ -60,9 +60,9 @@ function Content({ testData }) {
 
   switch (currentView) {
     case VIEWS.Loader:
-      return <Loader />;
+      return <Loader message="Sending to server..."/>
     case VIEWS.Error:
-      return <Error data={answers} title={testData.title} />;
+      return <SubmitError data={answers} title={testData.title} />;
     case VIEWS.Final:
       return <Final title={testData.title} />;
     case VIEWS.Test:

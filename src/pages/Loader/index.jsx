@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import {WanderingCubes} from 'styled-spinkit';
-import {withTheme} from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import { WanderingCubes } from "styled-spinkit";
+import { withTheme } from "styled-components";
 
 const Container = styled.div`
   width: 100%;
@@ -10,14 +10,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`
-function Loader({theme}) {
+`;
+function Loader({ theme, message }) {
   return (
     <Container>
-      <WanderingCubes color={theme.color1} size={60}/>
-      Sending to server...
+      <WanderingCubes color={theme.color1} size={60} />
+      {message}
     </Container>
-  )
+  );
 }
 
 export default withTheme(Loader);

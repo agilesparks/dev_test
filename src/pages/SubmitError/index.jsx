@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import PageContainer from '../../components/PageContainer';
 
-export default function ErrorPage({data, title}) {
+export default function SubmitErrorPage({data, title}) {
   return (
     <PageContainer>
       <Header>
