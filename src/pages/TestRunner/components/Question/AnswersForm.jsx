@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown';
 const ANSWERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
 
 const AnswerContainer = styled.div`
-  margin-bottom: 1em;
   & p {
     display: inline-block;
     flex: 1;
@@ -14,6 +13,10 @@ const AnswerContainer = styled.div`
 `
 const Label = styled.label`
   display: flex;
+  padding: 0.5em 0;
+  &:hover {
+    background: #eee;
+  } 
 `
 const Img = styled.img`
   vertical-align: top;

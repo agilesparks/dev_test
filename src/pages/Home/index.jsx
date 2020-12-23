@@ -1,6 +1,7 @@
-import React from 'react';
-import Header from '../../components/Header';
-import PageContainer from '../../components/PageContainer';
+import React from "react";
+import Header from "../../components/Header";
+import Form from "../../components/Form";
+import PageContainer from "../../components/PageContainer";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -15,39 +16,43 @@ class Homepage extends React.Component {
       name: this.nameRef.current.value,
       exp: this.expRef.current.value,
     });
-  }
+  };
 
   render() {
-    const {title, duration_min, technology, questionsCount} = this.props;
+    const { title, duration_min, technology, questionsCount } = this.props;
     return (
       <PageContainer>
-        <Header>
-          {title}
-        </Header>
+        <Header>{title}</Header>
+        <p>Welcome to {title}.</p>
         <p>
-          Welcome to {title}.<br/>
-          Please fill your name below and then submit to start the test.<br/>
+          The test includes <b>{questionsCount}</b> multiple choice questions.
+          <br />
+          Once it starts, you will have <b>{duration_min}</b> minutes to
+          complete all {questionsCount} questions.
+          <br />
         </p>
+        <p>Please fill your name below and then <b>submit</b> to start the test.</p>
         <p>
-          The test includes <b>{questionsCount}</b> multiple choice questions.<br/>
-          Once it starts, you will have <b>{duration_min}</b> minutes to complete all {questionsCount} questions.<br/>
+          <b><i>Important:</i></b>
+          <br />
+          The questions have different difficulty levels, so plan your time
+          accordingly.
         </p>
-        <p>
-          <b>Important:</b> the questions have different difficulty levels, so plan your time accordingly.
-        </p>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Full Name: <input ref={this.nameRef} required={true}></input>
-          </label><br/>
-          <label>
-            Years of {technology} experience: <input ref={this.expRef} required={true} type="number"></input>
-          </label><br/>
-          <br/>
+        <Form onSubmit={this.handleSubmit}>
+          <label htmlFor="input_name">Full Name:</label>
+          <input ref={this.nameRef} required={true} id="input_name"></input>
+          <label htmlFor="input_yoe">
+            Years of <b>{technology}</b> experience:
+          </label>
+          <input
+            ref={this.expRef}
+            required={true}
+            type="number"
+            id="input_yoe"
+          ></input>
           <button>Start</button>
-        </form>
-        <p>
-          Good luck!
-        </p>
+        </Form>
+        <p>Good luck!</p>
       </PageContainer>
     );
   }

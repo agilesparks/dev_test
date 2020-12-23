@@ -4,7 +4,7 @@ import AnswersForm from './AnswersForm';
 import QuestionContent from './Question';
 
 const Container = styled.div`
-  max-width: 980px;
+  margin-bottom: 1em;
   & code {
     background: #f7f7f7;
     padding: 0.25em 0.5em;

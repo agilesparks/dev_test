@@ -1,25 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
+import React from "react";
+import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 
 const Wrapper = styled.div`
-& p {
-  margin: 0;
-}
-`
-export default function QuestionText({text, imageUrl}) {
+  & p {
+    margin: 0;
+  }
+`;
+export default function QuestionText({ text, imageUrl }) {
   return (
     <Wrapper>
-      {text && <ReactMarkdown source={text} />}<br/>
+      {text && <ReactMarkdown source={text} />}
+      <br />
       {imageUrl && (
-        <img 
+        <img
           key={imageUrl}
-          srcSet={`${imageUrl} 100w`} 
-          sizes="50px" 
-          src={imageUrl} 
+          srcSet={`${imageUrl} 100w`}
+          sizes="50px"
+          src={imageUrl}
           alt="Question"
         />
       )}
     </Wrapper>
-  )
+  );
 }
