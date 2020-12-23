@@ -12,6 +12,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
+    "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1",
     "styled-spinkit": "^1.1.0"
   },
@@ -20,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "netlify deploy --dir=dist --prod"
+    "deploy": "netlify deploy --dir=build --prod"
   },
   "eslintConfig": {
     "extends": "react-app"

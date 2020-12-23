@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../../components/Header";
-import PageContainer from "../../components/PageContainer";
-import Anchor from "../../components/Anchor";
+import Header from "../components/Header";
+import PageContainer from "../components/PageContainer";
+import Link from "../components/Link";
 
-function Index({ data }) {
+function IndexRoute({ data }) {
   return (
     <PageContainer>
       <Header>{data.company_name} Online Tests</Header>
@@ -16,7 +16,7 @@ function Index({ data }) {
         <ul>
           {data.tests.map((test) => (
             <li key={test.slug}>
-              <Anchor href={test.slug}>{test.name}</Anchor>
+              <Link to={test.slug}>{test.name}</Link>
             </li>
           ))}
         </ul>
@@ -26,4 +26,4 @@ function Index({ data }) {
   );
 }
 
-export default Index;
+export default IndexRoute;

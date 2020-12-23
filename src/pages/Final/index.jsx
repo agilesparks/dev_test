@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header";
 import PageContainer from "../../components/PageContainer";
-import Anchor from "../../components/Anchor";
+import Link from "../../components/Link";
 
 export default function FinalPage({ title }) {
   return (
@@ -12,7 +12,7 @@ export default function FinalPage({ title }) {
         <br />
         We'll review it and be in touch soon.
       </p>
-      <Anchor href="/">Back to main page</Anchor>
+      <Link to="/">Back to main page</Link>
     </PageContainer>
   );
 }
