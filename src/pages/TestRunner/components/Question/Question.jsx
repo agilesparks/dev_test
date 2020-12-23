@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 const Wrapper = styled.div`
   & p {
     margin: 0;
+    max-width: 80ch;
   }
 `;
 export default function QuestionText({ text, imageUrl }) {
