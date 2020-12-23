@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import theme from "./theme";
 import TestRoute from "./routes/TestRoute";
-import Index from "./pages/Index";
+import IndexRoute from "./routes/IndexRoute";
 
 import testsMetaData from "./data/index.json";
 
@@ -26,7 +26,7 @@ function App() {
               <TestRoute testsMetaData={testsMetaData} />
             </Route>
             <Route path="*">
-              <Index data={testsMetaData} />
+              <IndexRoute data={testsMetaData} />
             </Route>
           </Switch>
         </Router>
