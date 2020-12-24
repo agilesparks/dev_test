@@ -1,9 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .netlify 
 
-/src/data/*
-!/src/data/example1*
-!/src/data/example1.json
+/src/data
 
 # dependencies
 /node_modules
