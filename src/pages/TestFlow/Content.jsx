@@ -7,6 +7,8 @@ import Loader from "../Loader";
 import Final from "../Final";
 import SubmitError from "../SubmitError";
 
+const LOCAL_STORAGE_KEY_NAME = 'LOCAL_STORAGE_KEY_NAME';
+
 const VIEWS = {
   Home: "home",
   Test: "test",
@@ -23,6 +25,7 @@ function Content({ testData }) {
 
   const handleUserFormSubmit = React.useCallback(
     async (data) => {
+      localStorage[LOCAL_STORAGE_KEY_NAME] = data.name;
       setCurrentView(VIEWS.Test);
       setUseData(data);
       setTsStart(Date().toLocaleString());
@@ -76,6 +79,7 @@ function Content({ testData }) {
           duration_min={testData.duration_min}
           technology={testData.technology}
           questionsCount={testData.questions.length}
+          userName={localStorage[LOCAL_STORAGE_KEY_NAME]}
         />
       );
   }

@@ -19,7 +19,13 @@ class Homepage extends React.Component {
   };
 
   render() {
-    const { title, duration_min, technology, questionsCount } = this.props;
+    const {
+      title,
+      duration_min,
+      technology,
+      questionsCount,
+      userName,
+    } = this.props;
     return (
       <PageContainer>
         <Header>{title}</Header>
@@ -31,16 +37,26 @@ class Homepage extends React.Component {
           complete all {questionsCount} questions.
           <br />
         </p>
-        <p>Please fill your name below and then <b>submit</b> to start the test.</p>
         <p>
-          <b><i>Important:</i></b>
+          Please fill your name below and then <b>submit</b> to start the test.
+        </p>
+        <p>
+          <b>
+            <i>Important:</i>
+          </b>
           <br />
           The questions have different difficulty levels, so plan your time
           accordingly.
         </p>
         <Form onSubmit={this.handleSubmit}>
           <label htmlFor="input_name">Full Name:</label>
-          <input ref={this.nameRef} required={true} id="input_name"></input>
+          <input
+            ref={this.nameRef}
+            required={true}
+            id="input_name"
+            defaultValue={userName}
+            autoFocus
+          ></input>
           <label htmlFor="input_yoe">
             Years of <b>{technology}</b> experience:
           </label>

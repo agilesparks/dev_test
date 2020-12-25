@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-console.error("Please don't use the console! Thanks :)")
+console.error("Hey! Thanks for taking our test")
+console.error("To keep the test fair, please don't use the console :)")
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
