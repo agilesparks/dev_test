@@ -7,7 +7,7 @@ import Loader from "../Loader";
 import Final from "../Final";
 import SubmitError from "../SubmitError";
 
-const LOCAL_STORAGE_KEY_NAME = 'LOCAL_STORAGE_KEY_NAME';
+const LOCAL_STORAGE_KEY_NAME = "LOCAL_STORAGE_KEY_NAME";
 
 const VIEWS = {
   Home: "home",
@@ -28,7 +28,7 @@ function Content({ testData }) {
       localStorage[LOCAL_STORAGE_KEY_NAME] = data.name;
       setCurrentView(VIEWS.Test);
       setUseData(data);
-      setTsStart(Date().toLocaleString());
+      setTsStart(Date.now());
 
       // Log start
       submitUserInfo(testData.doc_id, data.name);
@@ -42,13 +42,12 @@ function Content({ testData }) {
       setAnswers(data);
 
       try {
-        const tsEnd = new Date().toLocaleString();
         const response = await submitTest({
           docId: testData.doc_id,
           userData,
           answers: data,
           tsStart,
-          tsEnd,
+          tsEnd: Date.now(),
         });
 
         console.log("Success!", response);
@@ -63,7 +62,7 @@ function Content({ testData }) {
 
   switch (currentView) {
     case VIEWS.Loader:
-      return <Loader message="Sending to server..."/>
+      return <Loader message="Sending to server..." />;
     case VIEWS.Error:
       return <SubmitError data={answers} title={testData.title} />;
     case VIEWS.Final:

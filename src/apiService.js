@@ -24,8 +24,8 @@ export function submitTest({docId, userData, answers, tsStart, tsEnd}) {
   const finalData = {
     name: userData.name,
     exp: userData.exp,
-    tsStart: tsStart,
-    tsEnd: tsEnd,
+    tsStart: new Date(tsStart).toISOString(),
+    tsEnd: new Date(tsEnd).toISOString(),
   };
   answers.forEach((ans, idx) => {
     finalData["a" + idx] = ans;
