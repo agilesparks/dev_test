@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-beforeunload": "^2.4.0",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
@@ -21,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "netlify deploy --dir=build --prod"
+    "deploy": "netlify deploy --dir=build --prod",
+    "syncdata": "cp -r ../code-tests/public/* ./src/data"
   },
   "eslintConfig": {
     "extends": "react-app"
