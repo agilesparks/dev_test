@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "netlify-cli": "^2.69.11",
-    "react-scripts": "4.0.1"
+    "react-scripts": "5.0.1"
   },
   "dependencies": {
     "react": "^17.0.1",
